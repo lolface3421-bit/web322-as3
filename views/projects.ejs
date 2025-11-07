@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="container mx-auto">
+      <div class="hero bg-base-200 rounded-xl shadow-lg p-6 mb-10">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Projects</h1>
+            <p class="py-6">
+              Browse the current list of Projects in our database. Click the theme to filter by sectors such as:
+              <br><br>
+              <a href="/solutions/projects?sector=Industry" class="btn btn-primary rounded-xl">Industry</a>
+              <a href="/solutions/projects?sector=Transportation" class="btn btn-primary rounded-xl">Transportation</a>
+              <a href="/solutions/projects?sector=Electricity" class="btn btn-primary rounded-xl">Electricity</a>
+              <a href="/solutions/projects?sector=Food, Agriculture, and Land Use" class="btn btn-primary rounded-xl">Food, Agriculture, and Land Use</a>
+            </p>
+          </div>
+        </div>
+      </div>
+        <div>
+        <table class="table table-zebra">
+            <% projects.forEach(project => { %>
+                <tr>
+                    <td class="px-3 py-2 font-bold">
+                      <%= project.title %>
+                    </td>
+                    <td class="px-3 py-2">
+                      <a href="/solutions/projects?sector=<%= project.sector %>" class="btn rounded-xl"><%= project.sector %></a>
+                    </td>
+                    <td class="px-3 py-2">
+                      <%= project.summary_short %>
+                    </td>
+                    <td class="px-3 py-2">
+                      <a href="/solutions/projects/<%= project.id %>" class="btn rounded-xl">Details</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

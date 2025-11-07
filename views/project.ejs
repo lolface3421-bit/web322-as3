@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= project.title %></title>
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="container mx-auto p-4">
+      <!-- about part -->
+      <div class="hero bg-base-200 rounded-xl shadow-lg p-6 mb-10">
+        <div class="hero-content text-center">
+          <div class="max-w-lg">
+            <h1 class="text-5xl font-bold"><%= project.title %></h1>
+            <p class="py-6">
+              Below, you will find detailed information about the project: <%= project.title %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- grid thing -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <img src="<%= project.feature_img_url %>" alt="Seneca College" class="rounded-xl shadow-lg"/>
+        </div>
+        <div>
+          <p><%= project.intro_short %></p>
+          <br/><br/>
+          <p class="font-bold">Impact:</p>
+          <p><%= project.impact %></p>
+          <br/><br/>
+          <p class="font-bold">More Information:</p>
+          <a href="<%= project.original_source_url %>" class="underline"><%= project.original_source_url %></a>
+          <br/><br/><br>
+          <!-- quote thing -->
+          <div>
+            <p id="quote"></p>
+            <p id="author"></p>
+          </div>
+          <br/>
+          <a href="#" onclick="history.back(); return false;" class="btn btn-primary">Return</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("https://dummyjson.com/quotes/random")
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("quote").textContent = `"${data.quote}"`;
+            document.getElementById("author").textContent = `— ${data.author}`;
+          });
+      });
+    </script>
+  </body>
+</html>
