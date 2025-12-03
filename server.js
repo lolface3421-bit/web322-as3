@@ -93,7 +93,17 @@ app.get("/solutions/projects/", (req, res) => {
 app.get("/solutions/addProject", ensureLogin, (req, res) => {
         projectData.getAllSectors()
         .then(sectors => {
-            res.render("addProject", { sectors: sectors })
+            const project = {
+                id: '',
+                title: '',
+                feature_img_url: '',
+                sector_id: '',
+                intro_short: '',
+                summary_short: '',
+                impact: '',
+                original_source_url: ''
+            }
+            res.render("addProject", { project: project, sectors: sectors })
         })
         .catch(err => {
             res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` })

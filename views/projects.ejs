@@ -12,7 +12,10 @@
       <div class="hero bg-base-200 rounded-xl shadow-lg p-6 mb-10">
         <div class="hero-content text-center">
           <div class="max-w-md">
-            <h1 class="text-5xl font-bold">Projects</h1>
+            <h1 class="text-5xl font-bold">Projects
+              <% if(session.user){ %>
+              <a href="/solutions/addProject" class="btn btn-primary rounded-xl">Add Project</a>
+              <% } %></h1>
             <p class="py-6">
               Browse the current list of Projects in our database. Click the theme to filter by sectors such as:
               <br><br>
@@ -20,9 +23,6 @@
               <a href="/solutions/projects?sector=Transportation" class="btn btn-primary rounded-xl">Transportation</a>
               <a href="/solutions/projects?sector=Electricity" class="btn btn-primary rounded-xl">Electricity</a>
               <a href="/solutions/projects?sector=Food, Agriculture, and Land Use" class="btn btn-primary rounded-xl">Food, Agriculture, and Land Use</a>
-              <% if(session.user){ %>
-              <a href="/solutions/addProject" class="btn btn-primary rounded-xl">Add Project</a>
-              <% } %>
             </p>
           </div>
         </div>
