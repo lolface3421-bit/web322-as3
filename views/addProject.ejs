@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Climate Solutions</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="container mx-auto">
+      <!-- About part -->
+      <div class="hero bg-base-200 rounded-xl shadow-lg p-6 mb-10">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Add Project</h1>
+            <p class="py-6">
+              Use the below form to add a new Project to the collection
+            </p>
+          </div>
+        </div>
+      </div>
+
+<form action="/solutions/editProject" method="POST" class="space-y-4">
+
+  <input type="hidden" name="id" value="<%= project.id %>" />
+
+  <!-- title -->
+  <div class="form-control flex flex-col md:flex-row md:items-center md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Title</span>
+    </label>
+    <input type="text" name="title" value="<%= project.title %>"
+           required class="input input-bordered w-full md:flex-1"/>
+  </div>
+
+  <!-- feature img -->
+  <div class="form-control flex flex-col md:flex-row md:items-center md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Feature Image (URL)</span>
+    </label>
+    <input type="url" name="feature_img_url" value="<%= project.feature_img_url %>"
+           required class="input input-bordered w-full md:flex-1"/>
+  </div>
+
+  <!-- sector -->
+  <div class="form-control flex flex-col md:flex-row md:items-center md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Sector</span>
+    </label>
+    <select name="sector_id" required
+            class="select select-bordered w-full md:flex-1">
+      <% sectors.forEach(sector => { %>
+        <option value="<%= sector.id %>"
+          <%= project.sector_id === sector.id ? "selected" : "" %>>
+          <%= sector.sector_name %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <!-- intro -->
+  <div class="form-control flex flex-col md:flex-row md:items-start md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Intro (Short)</span>
+    </label>
+    <textarea name="intro_short" required
+              class="textarea textarea-bordered w-full md:flex-1"><%= project.intro_short %></textarea>
+  </div>
+
+  <!-- summary -->
+  <div class="form-control flex flex-col md:flex-row md:items-start md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Summary (Short)</span>
+    </label>
+    <textarea name="summary_short" required
+              class="textarea textarea-bordered w-full md:flex-1"><%= project.summary_short %></textarea>
+  </div>
+
+  <!-- impact -->
+  <div class="form-control flex flex-col md:flex-row md:items-start md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Impact</span>
+    </label>
+    <textarea name="impact" required
+              class="textarea textarea-bordered w-full md:flex-1"><%= project.impact %></textarea>
+  </div>
+
+  <!-- original source url -->
+  <div class="form-control flex flex-col md:flex-row md:items-center md:space-x-4">
+    <label class="label mb-1 md:mb-0 w-full md:w-1/4">
+      <span class="label-text">Original Source URL</span>
+    </label>
+    <input type="url" name="original_source_url"
+           value="<%= project.original_source_url %>"
+           required class="input input-bordered w-full md:flex-1"/>
+  </div>
+
+  <div class="form-control mt-5">
+    <button class="btn btn-primary w-full">Update Project</button>
+  </div>
+
+</form>
+
+    </div>
+  </body>
+</html>
