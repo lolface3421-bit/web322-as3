@@ -35,7 +35,7 @@ function Initialize() {
     sequelize.sync()
       .then(() => resolve())
       .catch((err) => reject(err))
-  });
+  })
 }
 
 function getAllProjects() {
