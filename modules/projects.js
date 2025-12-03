@@ -53,11 +53,11 @@ function getProjectById(projectId) {
       where: { id: projectId }
     })
       .then((projects) => {
-        if (projects.length > 0) resolve(projects[0]);
-        else reject(`Unable to find project with id: ${projectId}`);
+        if (projects.length > 0) resolve(projects[0])
+        else reject(`Unable to find project with id: ${projectId}`)
       })
-      .catch((err) => reject(`Unable to find project with id: ${projectId}`));
-  });
+      .catch((err) => reject(`Unable to find project with id: ${projectId}`))
+  })
 }
 
 function getProjectsBySector(sector) {
@@ -71,10 +71,10 @@ function getProjectsBySector(sector) {
       }
     })
       .then((projects) => {
-        if (projects.length > 0) resolve(projects);
-        else reject(`Unable to find projects in sector: "${sector}"`);
+        if (projects.length > 0) resolve(projects)
+        else reject(`Unable to find projects in sector: "${sector}"`)
       })
-      .catch((err) => reject(`Unable to find projects in sector: "${sector}"`));
+      .catch((err) => reject(`Unable to find projects in sector: "${sector}"`))
   });
 }
 
