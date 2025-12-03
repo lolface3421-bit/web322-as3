@@ -43,7 +43,7 @@ function getAllProjects() {
     Project.findAll({ include: [Sector] })
       .then((projects) => resolve(projects))
       .catch((err) => reject("No projects were found"))
-  });
+  })
 }
 
 function getProjectById(projectId) {
@@ -75,7 +75,7 @@ function getProjectsBySector(sector) {
         else reject(`Unable to find projects in sector: "${sector}"`)
       })
       .catch((err) => reject(`Unable to find projects in sector: "${sector}"`))
-  });
+  })
 }
 
 function addProject(projectData) {
@@ -87,7 +87,7 @@ function addProject(projectData) {
             .catch(err => {
                 reject(err.errors[0].message)
             })
-    });
+    })
 }
 
 function getAllSectors() {
@@ -123,7 +123,7 @@ function deleteProject(id) {
             .catch(err => {
                 reject(err.errors[0].message)
             })
-    });
+    })
 }
 
 module.exports = { 

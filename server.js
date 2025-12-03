@@ -32,7 +32,7 @@ app.use(
     duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
     activeDuration: 1000 * 60, // the session will be extended by this many ms each request (1 minute)
   })
-);
+)
 
 app.use((req, res, next) => {
   res.locals.session = req.session
