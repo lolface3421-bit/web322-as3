@@ -1,12 +1,12 @@
 /********************************************************************************
- * WEB322 – Assignment 02
+ * WEB322 – Assignment 03
  *
  * I declare that this assignment is my own work in accordance with Seneca's
  * Academic Integrity Policy:
  *
  * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
  *
- * Name: Jimmy Yang Student ID: 117273193 Date: Nov 7, 2025
+ * Name: Jimmy Yang Student ID: 117273193 Date: Dec 2, 2025
  *
  ********************************************************************************/
 const projectData = require("./modules/projects")
