@@ -16,7 +16,7 @@ const app = express()
 const port = process.env.PORT || 8080
 const clientSessions = require("client-sessions")
 require("dotenv").config()
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 
 app.set("view engine", "ejs")
 app.use(express.static("public"))
@@ -35,7 +35,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.locals.session = req.session;
+  res.locals.session = req.session
   next()
 })
 
@@ -151,7 +151,7 @@ app.post("/login", (req, res) => {
   const { userName, password } = req.body
 
   if (userName === process.env.ADMINUSER && password === process.env.ADMINPASSWORD) {
-    req.session.user = { userName: userName };
+    req.session.user = { userName: userName }
     res.redirect("/solutions/projects")
   } else {
     res.render("login", { errorMessage: "Invalid username or password", userName: userName })
